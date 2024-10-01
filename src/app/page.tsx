@@ -25,9 +25,12 @@ export default function Home() {
       .then((res: any) => {
         const data = res.data.map((data: any[]) => {
           const random = Math.floor(Math.random() * words.length);
+          const size = Math.floor(Math.random() * 5000) + 100;
+          const size2 = Math.floor(Math.random() * 5000) + 100;
           return {
             ...data,
             hashtags: words.slice(random),
+            download_url: `https://placehold.co/${size}x${size2}`,
           };
         });
         setPhotos((prev) => [...prev, ...data]);
